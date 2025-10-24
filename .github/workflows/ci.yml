@@ -1,0 +1,18 @@
+name: Mon CI  # Nom du workflow
+
+on:
+  push:
+    branches: [ main, feature-readme ]  # Déclenche sur push vers ces branches
+
+jobs:
+  Construction:
+    runs-on: ubuntu-latest  # VM Ubuntu fournie par GitHub
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4  # Clone le repo
+
+      - name: Vérification du contenu
+        run: |
+          echo "Félicitations, Pipeline CI déclenché avec réussite"
+          ls -l
